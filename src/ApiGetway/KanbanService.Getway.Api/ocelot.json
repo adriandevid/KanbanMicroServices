@@ -1,0 +1,34 @@
+﻿{
+  "GlobalConfiguration": {
+    "UseServiceDiscovery": true,
+    "RequestIdKey": "ApiGetway",
+    "ServiceDiscoveryProvider": {
+      "Type": "Consul",
+      "Host": "207.244.226.41",
+      "Port": 8500,
+      "PollingInterval": 100
+    }
+  },
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/health/",
+      "DownstreamScheme": "http",
+      "UpstreamPathTemplate": "/api/projeto/",
+      "ServiceName": "ProjetoService",
+      "UpstreamHttpMethod": [ "Get" ],
+      "SwaggerKey": "projeto"
+    }
+  ],
+  "SwaggerEndPoints": [
+    {
+      "Key": "projeto",
+      "Config": [
+        {
+          "Name": "projeto API",
+          "Version": "v1",
+          "Url": "http://207.244.226.41:8080/swagger/v1/swagger.json"
+        }
+      ]
+    }
+  ]
+}
