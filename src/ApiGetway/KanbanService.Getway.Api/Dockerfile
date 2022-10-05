@@ -3,7 +3,7 @@ WORKDIR /source
 
 COPY ./ .
 
-RUN dotnet restore KanbanService.Getway.Api.sln && dotnet publish -c Release -o /app --no-restore
+RUN dotnet restore KanbanService.Getway.Api.csproj && dotnet publish -c Release -o /app --no-restore
 
 FROM mcr.microsoft.com/dotnet/aspnet:6.0
 WORKDIR /app
